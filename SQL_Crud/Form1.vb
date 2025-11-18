@@ -10,7 +10,7 @@ Public Class Form1
 
         Try
             conn.Open()
-            MessageBox.Show("Connected")
+            MessageBox.Show("Connected! ")
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             conn.Close()
