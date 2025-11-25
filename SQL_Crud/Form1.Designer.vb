@@ -123,6 +123,7 @@ Partial Class Form1
         Me.TextBoxHiddenID.Name = "TextBoxHiddenID"
         Me.TextBoxHiddenID.Size = New System.Drawing.Size(133, 20)
         Me.TextBoxHiddenID.TabIndex = 10
+        Me.TextBoxHiddenID.Visible = False
         '
         'ButtonRead
         '

@@ -37,6 +37,7 @@ Public Class Form1
                     TextBoxName.Clear()
                     TextBoxAge.Clear()
                     TextBoxEmail.Clear()
+                    TextBoxHiddenID.Clear()
                 End Using
             End Using
         Catch ex As Exception
@@ -77,5 +78,9 @@ Public Class Form1
                                      `age` = @age,
                                      `age` = @email,
                                 WHERE (`id` = @id,);"
+    End Sub
+
+    Private Sub TextBoxHiddenID_TextChanged(sender As Object, e As EventArgs) Handles TextBoxHiddenID.TextChanged
+        ' TextBoxHiddenID.Text = 
     End Sub
 End Class
