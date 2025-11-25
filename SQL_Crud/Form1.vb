@@ -18,11 +18,7 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonCreate_Click(sender As Object, e As EventArgs) Handles ButtonCreate.Click
-        Dim query As String = "UPDATE `crud_demo_db`.`new_table` 
-                                SET `name` = @name,
-                                     `age` = @age,
-                                     `age` = @email,
-                                WHERE (`id` = @id,);"
+        Dim query As String = "INSERT INTO `crud_demo_db`.`students_tbl` (`name`, `age`, `email`) VALUES (@name, @age, @email);"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
@@ -30,23 +26,20 @@ Public Class Form1
                     cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
                     cmd.Parameters.AddWithValue("@age", CInt(TextBoxAge.Text))
                     cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
-                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxHiddenID.Text))
                     cmd.ExecuteNonQuery()
-
-                    MessageBox.Show("Record updated successful!")
+                    MessageBox.Show("Record insert successful!")
                     TextBoxName.Clear()
                     TextBoxAge.Clear()
                     TextBoxEmail.Clear()
-                    TextBoxHiddenID.Clear()
                 End Using
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
-        End Try
+        End Try 'github.com/IceCold194/sql_crud_demo
     End Sub
 
     Private Sub ButtonRead_Click(sender As Object, e As EventArgs) Handles ButtonRead.Click
-        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl;"
+        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl WHERE is_deleted = 0;"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 Dim adapter As New MySqlDataAdapter(query, conn)
@@ -54,6 +47,8 @@ Public Class Form1
                 adapter.Fill(table)
                 DataGridView1.DataSource = table
                 DataGridView1.Columns("id").Visible = False
+                DataGridView1.Columns("is_deleted").Visible = False
+
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
