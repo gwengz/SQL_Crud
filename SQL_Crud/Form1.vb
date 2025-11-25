@@ -77,7 +77,7 @@ Public Class Form1
                                 SET `name` = @name,
                                      `age` = @age,
                                      `age` = @email,
-                                WHERE (`id` = @id,);"
+                                WHERE (`id` = @id);"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
@@ -104,15 +104,12 @@ Public Class Form1
         ' TextBoxHiddenID.Text = 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim query As String = "DELETE FROM `crud_demo_db`.`students_tbl` WHERE (`id` = '@id');"
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim query As String = "DELETE FROM `crud_demo_db`.`students_tbl` WHERE (`id` = @id);"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
-                    cmd.Parameters.AddWithValue("@age", CInt(TextBoxAge.Text))
-                    cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
                     cmd.Parameters.AddWithValue("@id", CInt(TextBoxHiddenID.Text))
                     cmd.ExecuteNonQuery()
 

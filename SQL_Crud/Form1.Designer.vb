@@ -34,7 +34,7 @@ Partial Class Form1
         Me.TextBoxHiddenID = New System.Windows.Forms.TextBox()
         Me.ButtonRead = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -147,23 +147,23 @@ Partial Class Form1
         Me.Button1.Text = "UPDATE (Modify Existing Data)"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnDelete
         '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(216, 217)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(194, 37)
-        Me.Button2.TabIndex = 13
-        Me.Button2.Text = "DELETE (Remove Existing Data)"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnDelete.BackColor = System.Drawing.Color.Transparent
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Location = New System.Drawing.Point(216, 217)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(194, 37)
+        Me.btnDelete.TabIndex = 13
+        Me.btnDelete.Text = "DELETE (Remove Existing Data)"
+        Me.btnDelete.UseVisualStyleBackColor = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(425, 461)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ButtonRead)
         Me.Controls.Add(Me.TextBoxHiddenID)
@@ -196,5 +196,5 @@ Partial Class Form1
     Friend WithEvents TextBoxHiddenID As TextBox
     Friend WithEvents ButtonRead As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnDelete As Button
 End Class
